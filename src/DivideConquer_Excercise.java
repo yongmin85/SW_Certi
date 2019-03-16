@@ -11,7 +11,7 @@ public class DivideConquer_Excercise {
 
     }
 
-    public static int fastSum(int n){
+    private static int fastSum(int n){
 
         if(n == 1) return n;
         if(n%2 == 1) return fastSum(n-1) + n;
