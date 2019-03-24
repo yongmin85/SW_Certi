@@ -79,11 +79,61 @@ public class DivideConquer_Excercise {
         System.out.println("");
     }
 
-    public static int[] karatsuba(int[] a, int b){
+    public static int[] karatsuba(int[] a, int[] b){
 
+        int an = a.length; int bn = b.length;
 
+        if(an < bn) karatsuba(b, a);
+
+        if(an == 0 || bn == 0) return new int[0];
+
+        int half = an / 2;
+
+        int[] a1 = arrayMove(a, 0, half);
+        int[] a0 = arrayMove(a, half+1, a.length - 1);
+
+        int[] b1 = arrayMove(b, 0, min(b.length-1,half));
+        int[] b0 = arrayMove(b, min(b.length -1, half) + 1, b.length - 1);
+
+        int[] z1 = karatsuba(a1, b1);
+        int[] z3 = karatsuba(a0, b0);
+        int[] z2 =
+
+        return null;
+    }
+
+    public static int[] arrayMove(int[] a, int fr, int to){
+        int n = to - fr;
+        if(n < 0) return new int[0];
+        int[] res = new int[n+1];
+
+        int k = 0;
+        for(int i = fr; i <= to; i++){
+            res[k] = a[i];
+            k++;
+        }
+
+        return res;
+
+    }
+
+    public static int min(int a, int b){
+        if(a > b) return b; else return a;
+    }
+
+    public static int[] addTo(int[] a, int[] b){
+
+        int an = a.length; int bn = b.length;
+
+        if(an < bn) addTo(b, a);
+
+        int[] res = new int[an+1];
 
 
         return null;
+
+
+
+
     }
 }
